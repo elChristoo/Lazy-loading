@@ -1,0 +1,100 @@
+.main-container {
+  display: flex;
+  height: 100vh;
+  width: auto;
+}
+
+.left-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80vw;
+  background-image: url("../../../assets/Vector.svg");
+
+  .info {
+    margin-left: 5%;
+  }
+  h1 {
+    font-size: 3rem;
+  }
+  p {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+.right-side {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo {
+//   background-color: blue;
+  width: 38%;
+  display: flex;
+  position: absolute;
+  z-index: 100;
+  justify-content: flex-end;
+  img {
+    width: 17%;
+  }
+}
+
+.login-card {
+  height: 100%;
+  width: 100%;
+}
+.login-container {
+  margin-top: 5%;
+  height: 70%;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+
+  mat-card-header {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    .title {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 25%;
+    }
+    .subtitle {
+      font-size: 20px;
+    }
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    height: 110%;
+  }
+  mat-form-field {
+    width: 70%;
+  }
+  .login {
+    width: 70%;
+    height: 50px;
+    font-weight: bold;
+    font-size: 1.2rem;
+  }
+}
+
+mat-divider {
+  margin-top: 2.5%;
+}
+
+
+.title{
+    background-color: aqua;
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    color: darkgray;
+    font-size: 20px;
+    font-family: sans-serif;
+}
