@@ -3,6 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+  },
+  {
     path: 'customers',
     loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
   },
@@ -16,11 +20,10 @@ const routes: Routes = [
     pathMatch: 'full'
   }
 ];
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { 
-
-}
+export class AppRoutingModule {}
 

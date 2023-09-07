@@ -1,100 +1,462 @@
-.main-container {
-  display: flex;
-  height: 100vh;
-  width: auto;
+/* Define las fuentes personalizadas al principio del archivo */
+@font-face {
+  font-family: "Satoshi-black";
+  src: url("../../../assets/fonts/Satoshi-Black.otf");
+}
+@font-face {
+  font-family: "Satoshi-regular";
+  src: url("../../../assets/fonts/Satoshi-Regular.otf");
 }
 
-.left-side {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80vw;
-  background-image: url("../../../assets/Vector.svg");
-
-  .info {
-    margin-left: 5%;
-  }
-  h1 {
-    font-size: 3rem;
-  }
-  p {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-}
-.right-side {
-  width: 50vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.logo {
-//   background-color: blue;
-  width: 38%;
-  display: flex;
-  position: absolute;
-  z-index: 100;
-  justify-content: flex-end;
-  img {
-    width: 17%;
-  }
-}
-
-.login-card {
-  height: 100%;
-  width: 100%;
-}
-.login-container {
-  margin-top: 5%;
-  height: 70%;
-  width: 100%;
-  display: flex;
-  text-align: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-
-  mat-card-header {
+/* Estilos para dispositivos de escritorio (ancho mínimo de 1024px) */
+@media (min-width: 1024px) {
+  .container {
     display: flex;
-    justify-content: center;
-    font-weight: bold;
-    .title {
-      font-size: 30px;
-      text-align: center;
-      margin-bottom: 25%;
-    }
-    .subtitle {
-      font-size: 20px;
-    }
+    flex-direction: row;
+    /* Muestra las secciones en línea (izquierda y derecha) */
   }
-  .login-form {
+  /* SECCION LEFT */
+  .left {
+    background-image: url(../../../assets/img/Vector.svg);
+    background-color: #eceff1;
+    width: 65%;
+    height: 100vh;
+    /* Abarca toda la altura de la pantalla */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .box-left {
+    /* Estilos para el contenido de la izquierda en pantallas grandes */
+    padding: 2% 4%;
+  }
+  .box-left h1 {
+    font-size: 64px;
+    font-family: "Satoshi-black";
+  }
+  .left p {
+    font-size: 27px;
+    font-family: "Satoshi-regular";
+  }
+
+  /* SECCION RIGHT */
+  .right {
+    // background-color: #777;
+    background-color: #ffffff;
+    width: 35%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .header {
+    // background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 3px 0 0;
+    flex: 0 0 auto;
+  }
+  .header img {
+    width: 15%;
+    object-fit: cover;
+  }
+
+  .form-box {
+    // background-color: red;
+    width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    height: 110%;
+    // padding: 22px 0px 0px 0px;
+    gap: 5rem;
   }
-  mat-form-field {
-    width: 70%;
-  }
-  .login {
-    width: 70%;
-    height: 50px;
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
-}
-
-mat-divider {
-  margin-top: 2.5%;
-}
-
-
-.title{
-    background-color: aqua;
-    margin-top: 20%;
+  .title {
+    // background-color: rgb(123, 123, 204);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    color: darkgray;
-    font-size: 20px;
-    font-family: sans-serif;
+    // justify-content: first center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    // padding: 0px 32px 0px 32px;
+  }
+  .title h1 {
+    font-family: "Satoshi-black";
+    font-size: 48px;
+  }
+
+  .title h2 {
+    font-family: "Satoshi-black";
+    font-size: 34px;
+    color: #00000080;
+  }
+
+  .mat-form {
+    // background-color: #546672;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // padding: 32px 32px 32px 32px;
+    gap: 15px;
+  }
+
+  mat-form-field {
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+
+  .button-login {
+    height: 48px;
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Satoshi-regular';
+    font-size: 14px;
+  }
+
+  .footer {
+    // background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 0 22px;
+  }
+
+  .terms-link a {
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Satoshi-regular';
+  }
+
+  .terms-link ::before {
+    content: "|";
+    margin: 0 10px;
+    color: #777;
+  }
+}
+
+
+/* Estilos para dispositivos móviles (ancho máximo de 767px) */
+@media (max-width: 767px) and (orientation: portrait) {
+  /* Aquí puedes definir tus estilos específicos para dispositivos móviles */
+  .container {
+    /* Estilos para el contenedor en dispositivos móviles */
+    display: flex;
+    flex-direction: column;
+    //     /* Muestra las secciones en línea (izquierda y derecha) */
+  }
+
+  .left {
+    /* Estilos para la sección izquierda en dispositivos móviles */
+    background-image: url(../../../assets/img/Vector.svg);
+        background-color: #eceff1;
+        width: 100%;
+        height: 40vh;
+        /* Abarca toda la altura de la pantalla */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+  }
+  .box-left{
+     /* Estilos para el contenido de la izquierda en pantallas grandes */
+    padding: 4% 4%;
+  }
+
+  .box-left h1 {
+    /* Estilos para el título h1 en dispositivos móviles */
+    font-size: 32px;
+    font-family: "Satoshi-black";
+  }
+
+  .left p {
+    /* Estilos para el párrafo en dispositivos móviles */
+    font-size: 16px;
+    font-family: "Satoshi-regular";
+  }
+  //   //  SECTION RIGHT //
+  .right {
+    // background-color: #777;
+    background-color: #ffffff;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    // background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 3px 0 0;
+    flex: 0 0 auto;
+
+  }
+
+  .header img {
+    width: 15%;
+    // object-fit: cover;
+  }
+
+  .form-box {
+    // background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 22px 0px 0px 0px;
+    gap: 2rem;
+  }
+
+  .title {
+    // background-color: rgb(123, 123, 204);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: first center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    // padding: 0px 32px 0px 32px;
+  }
+
+  .title h1 {
+    font-family: "Satoshi-black";
+    font-size: 28px;
+  }
+
+  .title h2 {
+    font-family: "Satoshi-black";
+    font-size: 24px;
+    color: #00000080;
+  }
+
+  .mat-form {
+    // background-color: #546672;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // padding: 32px 32px 32px 32px;
+    gap: 15px;
+  }
+
+  mat-form-field {
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+
+  .button-login {
+    height: 48px;
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Satoshi-regular';
+    font-size: 14px;
+  }
+
+  .footer {
+    // background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 0 22px;
+  }
+
+  .terms-link a {
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Satoshi-regular';
+  }
+
+  .terms-link ::before {
+    content: "|";
+    margin: 0 10px;
+    color: #777;
+  }
+
+}
+
+/* Estilos para tablets (ancho mínimo de 768px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Aquí puedes definir tus estilos específicos para tablets */
+  .container {
+    /* Estilos para el contenedor en dispositivos móviles */
+    display: flex;
+    flex-direction: column;
+    //     /* Muestra las secciones en línea (izquierda y derecha) */
+  }
+
+  .left {
+    /* Estilos para la sección izquierda en dispositivos móviles */
+    background-image: url(../../../assets/img/Vector.svg);
+        background-color: #eceff1;
+        width: 100%;
+        height: 30vh;
+        /* Abarca toda la altura de la pantalla */
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+  }
+  .box-left{
+     /* Estilos para el contenido de la izquierda en pantallas grandes */
+    padding: 2% 4%;
+  }
+
+  .box-left h1 {
+    /* Estilos para el título h1 en dispositivos móviles */
+    font-size: 32px;
+    font-family: "Satoshi-black";
+  }
+
+  .left p {
+    /* Estilos para el párrafo en dispositivos móviles */
+    font-size: 13.5px;
+    font-family: "Satoshi-regular";
+  }
+  //   //  SECTION RIGHT //
+  .right {
+    // background-color: #777;
+    background-color: #ffffff;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    // background-color: aqua;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 3px 0 0;
+    flex: 0 0 auto;
+
+  }
+
+  .header img {
+    width: 10%;
+    object-fit: cover;
+  }
+
+  .form-box {
+    // background-color: red;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // padding: 22px 0px 0px 0px;
+    gap: 5rem;
+  }
+
+  .title {
+    // background-color: rgb(123, 123, 204);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: first center;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    // padding: 0px 32px 0px 32px;
+  }
+
+  .title h1 {
+    font-family: "Satoshi-black";
+    font-size: 48px;
+  }
+
+  .title h2 {
+    font-family: "Satoshi-black";
+    font-size: 34px;
+    color: #00000080;
+  }
+
+  .mat-form {
+    // background-color: #546672;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // padding: 32px 32px 32px 32px;
+    gap: 15px;
+  }
+
+  mat-form-field {
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+
+  .button-login {
+    height: 48px;
+    min-width: 150px;
+    max-width: 350px;
+    width: 100%;
+  }
+
+  .account {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Satoshi-regular';
+    font-size: 14px;
+  }
+
+  .footer {
+    // background-color: blue;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 12px 0 22px;
+  }
+
+  .terms-link a {
+    text-decoration: none;
+    font-size: 12px;
+    font-family: 'Satoshi-regular';
+  }
+
+  .terms-link ::before {
+    content: "|";
+    margin: 0 10px;
+    color: #777;
+  }
 }
