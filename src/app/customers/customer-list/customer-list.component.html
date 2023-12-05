@@ -1,1 +1,77 @@
-<p>app-works!</p>
+<main class="container">
+    <!-- SECCION IZQUIERA -->
+    <section class="left">
+        <div class="glass-effect">
+            <div class="box-left">
+                <h1 class="title-ich">Software ICH</h1>
+                <p class="tw" #typewriter></p>
+            </div>
+        </div>
+    </section>
+    <!-- SECTION DERECHA -->
+    <section class="right">
+        <div class="loader" *ngIf="loaderService.isLoading | async">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </div>
+        <div class="header">
+            <a class="header-link" href="https://naatik.ai/"><img src="../../../assets/img/logo.png"/></a>
+        </div>
+        <div class="box">
+            <div class="box-shadow">
+                <div class="title">
+                    <h1>Sign up</h1>
+                </div>
+                <div class="mat-form">
+                    <mat-form-field appearance="outline">
+                        <mat-label>First name</mat-label>
+                        <input type="text" matInput [formControl]="firstNameFormControl" placeholder=""  name="firstName" id="firstName" [(ngModel)]="datosSignup.firstName">
+                        <mat-error *ngIf="firstNameFormControl.hasError('required')">
+                            Name is <strong>required</strong>
+                          </mat-error>  
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Last name</mat-label>
+                        <input type="text" matInput [formControl]="lastNameFormControl" placeholder=""  name="lastName" id="lastName" [(ngModel)]="datosSignup.lastName">
+                        <mat-error *ngIf="lastNameFormControl.hasError('required')">
+                            Last name is <strong>required</strong>
+                          </mat-error>  
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com"  name="email" id="email" [(ngModel)]="datosSignup.email">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                          Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                          Email is <strong>required</strong>
+                        </mat-error>  
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" id="password" required="required" [(ngModel)]="datosSignup.password" />
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{
+                                hide ? "visibility_off" : "visibility"
+                                }}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="passwordFormControl.hasError('email') && !passwordFormControl.hasError('required')">
+                          </mat-error>
+                          <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            Password is <strong>required</strong>
+                          </mat-error>
+                    </mat-form-field> 
+                    <button mat-raised-button color="primary" class="button-login" (click)="login()">Sign up</button>
+                    <div class="account">
+                        <p>Do you already have an account? <a href="" routerLink="/login">Log in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="terms-link">
+                <a href="">Terms of Use</a><a href="">Privacy Policy</a>
+            </div>
+        </footer>
+    </section>
+</main>

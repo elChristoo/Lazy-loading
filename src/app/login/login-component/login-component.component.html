@@ -1,46 +1,64 @@
 <main class="container">
-    <!-- SECTION LEFT -->
+    <!-- SECCION IZQUIERA -->
     <section class="left">
-        <div class="box-left">
-            <h1>Software ICH</h1>
-            <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua ut enim ad.
-            </p>
+        <div class="glass-effect">
+            <div class="box-left">
+                <h1 class="title-ich">Welcome back to ICH</h1>
+                <p class="tw" #typewriter></p>
+            </div>
         </div>
     </section>
-    <!-- SECTION RIGHT -->
+    <!-- SECTION DERECHA -->
     <section class="right">
-        <div class="header">
-            <img src="../../../assets/img/logo.png" />
+        <div class="loader" *ngIf="loaderService.isLoading | async">
+            <mat-progress-bar mode="indeterminate"></mat-progress-bar>
         </div>
-        <div class="form-box">
-            <div class="title">
-                <h1>Log in</h1>
-                <h2>Welcome back</h2>
-            </div>
-            <div class="mat-form">
-                <mat-form-field>
-                    <mat-label>Email address</mat-label>
-                    <input matInput #input maxlength="10" placeholder="example@gmail.com" />
-                </mat-form-field>
-
-                <mat-form-field>
-                    <mat-label>Password</mat-label>
-                    <input matInput [type]="hide ? 'password' : 'text'" />
-                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                        [attr.aria-pressed]="hide">
-                        <mat-icon>{{
-                            hide ? "visibility_off" : "visibility"
-                            }}</mat-icon>
-                    </button>
-                </mat-form-field>
-                <button mat-raised-button color="primary" class="button-login">Log in</button>
-                <div class="account">
-                    <p>Don't have an account? <a href="" routerLink="/customers">Sign up</a></p>
+        <div class="header">
+            <a class="header-link" href="https://naatik.ai/"><img src="../../../assets/img/logo.png" /></a>
+        </div>
+        <div class="box">
+            <div class="box-shadow">
+                <div class="title">
+                    <h1>Log in</h1>
+                </div>
+                <div class="mat-form">
+                    <mat-form-field appearance="outline">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com"
+                            name="email" id="email" [(ngModel)]="datosLogin.email">
+                        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            Please enter a valid email address
+                        </mat-error>
+                        <mat-error *ngIf="emailFormControl.hasError('required')">
+                            Email is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" name="password" id="password"
+                            required="required" [(ngModel)]="datosLogin.password" />
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{
+                                hide ? "visibility_off" : "visibility"
+                                }}</mat-icon>
+                        </button>
+                        <mat-error
+                            *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+                        </mat-error>
+                        <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            Password is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" class="button-login" name="orders" id="orders"
+                        (click)="orders()">Log in</button>
+                    <div class="account">
+                        <p>Are you a new user? <a href="" routerLink="/customers">Create an account</a></p>
+                    </div>
                 </div>
             </div>
         </div>
+        <mat-divider></mat-divider>
         <footer class="footer">
             <div class="terms-link">
                 <a href="">Terms of Use</a><a href="">Privacy Policy</a>
@@ -48,5 +66,3 @@
         </footer>
     </section>
 </main>
-
-

@@ -3,21 +3,38 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import { LoginModule } from './login/login.module';
+import { CustomersModule } from './customers/customers.module';
+import { OrdersModule } from './orders/orders.module';
+// import { HomeModule } from './home/home.module';
+import { ProfileModule } from './profile/profile.module';
+import { AboutModule } from './about/about.module';
 
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
+// import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 
-import { RouterModule } from '@angular/router';
-import { routes } from './app.route.module';
+// import { routes } from './app.route.module';
+ 
+import { NgxTypedJsModule } from 'ngx-typed-js';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './loader/interceptor.service';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -26,21 +43,34 @@ import { routes } from './app.route.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule,
 
     MatInputModule,
     FormsModule,
     MatFormFieldModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
+    ReactiveFormsModule,
+    // MatSlideToggleModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
     MatDividerModule,
+    NgxTypedJsModule,
+    
+    MatSidenavModule,
+    MatToolbarModule,
 
-    RouterModule.forRoot(routes, {useHash:true}),
+    ToastrModule,
+    BrowserAnimationsModule, 
+    ToastrModule.forRoot({
+      timeOut: 3000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+      progressBar: true,
+      closeButton: false,
+    }),
+
   ],
-  providers: [],
+  providers: [ 
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}],
   bootstrap: [AppComponent],
 
 })

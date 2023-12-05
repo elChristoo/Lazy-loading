@@ -4,26 +4,24 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then(m => m.LoginModule)
+    loadChildren: () =>
+      import('./login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'customers',
-    loadChildren: () => import('./customers/customers.module').then(m => m.CustomersModule)
+    loadChildren: () =>
+      import('./customers/customers.module').then((m) => m.CustomersModule),
   },
   {
     path: 'orders',
-    loadChildren: () => import('./orders/orders.module').then(m => m.OrdersModule)
+    loadChildren: () =>
+      import('./orders/orders.module').then((m) => m.OrdersModule),
   },
-  {
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }
 ];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
-

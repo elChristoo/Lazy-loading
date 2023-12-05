@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies":[
+              "lodash"
+           ],
             "outputPath": "dist/lazy",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -30,7 +33,9 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/theming.scss",              
+              "src/styles.scss",
+              "node_modules/ngx-toastr/toastr.css"
             ],
             "scripts": []
           },
