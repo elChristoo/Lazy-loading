@@ -4,13 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { LoginModule } from './login/login.module';
-import { CustomersModule } from './customers/customers.module';
-import { OrdersModule } from './orders/orders.module';
-// import { HomeModule } from './home/home.module';
-import { ProfileModule } from './profile/profile.module';
-import { AboutModule } from './about/about.module';
-
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';

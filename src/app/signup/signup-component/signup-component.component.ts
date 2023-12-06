@@ -1,4 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { AfterViewInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { ToastrService } from 'ngx-toastr';
@@ -7,12 +9,14 @@ import Typewriter from 't-writer.js';
 
 import { FormControl, Validators } from '@angular/forms';
 
+
 @Component({
-  selector: 'app-customer-list',
-  templateUrl: './customer-list.component.html',
-  styleUrls: ['./customer-list.component.scss']
+  selector: 'app-signup-component',
+  templateUrl: './signup-component.component.html',
+  styleUrls: ['./signup-component.component.scss']
 })
-export class CustomerListComponent implements AfterViewInit {
+export class SignupComponentComponent implements AfterViewInit {
+
 
   firstNameFormControl = new FormControl('', [Validators.required]);
   lastNameFormControl = new FormControl('', [Validators.required]);
@@ -89,6 +93,5 @@ export class CustomerListComponent implements AfterViewInit {
 
     return may && min && num && ce;
   }
-
+  
 }
-

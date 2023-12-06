@@ -47,7 +47,7 @@ export class LoginComponentComponent implements AfterViewInit {
   constructor(private router: Router, public loaderService: LoaderService, private toastr: ToastrService) { }
 
   datosLogin = { email: '', password: '' };
-  orders() {
+  home() {
     if (!this.datosLogin.email || !this.datosLogin.password) {
       this.toastr.error('Campos vacíos, verifique los datos');
     } else if (this.datosLogin.password.length <= 7) {
@@ -59,7 +59,7 @@ export class LoginComponentComponent implements AfterViewInit {
     } else {
       this.loaderService.isLoading.next(true);
       setTimeout(() => {
-        this.router.navigate(['/orders']);
+        this.router.navigate(['/home']);
         this.loaderService.isLoading.next(false);
       }, 3000);
     }

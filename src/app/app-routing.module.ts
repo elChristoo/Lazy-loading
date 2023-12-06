@@ -8,14 +8,14 @@ const routes: Routes = [
       import('./login/login.module').then((m) => m.LoginModule),
   },
   {
-    path: 'customers',
+    path: 'signup',
     loadChildren: () =>
-      import('./customers/customers.module').then((m) => m.CustomersModule),
+      import('./signup/signup.module').then((m) => m.SignupModule),
   },
   {
-    path: 'orders',
+    path: 'home',
     loadChildren: () =>
-      import('./orders/orders.module').then((m) => m.OrdersModule),
+      import('./home/home.module').then((m) => m.HomeModule),
   },
 ];
 

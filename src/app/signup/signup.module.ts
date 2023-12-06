@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CustomersRoutingModule } from './customers-routing.module';
-import { CustomerListComponent } from './customer-list/customer-list.component';
+import { SignupRoutingModule } from './signup-routing.module';
+import { SignupComponentComponent } from './signup-component/signup-component.component';
+
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
@@ -20,11 +21,12 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { NgxTypedJsModule } from 'ngx-typed-js';
 
 @NgModule({
-  declarations: [CustomerListComponent
+  declarations: [
+    SignupComponentComponent
   ],
   imports: [
     CommonModule,
-    CustomersRoutingModule,
+    SignupRoutingModule,
 
     MatSlideToggleModule,
     MatInputModule,
@@ -37,7 +39,6 @@ import { NgxTypedJsModule } from 'ngx-typed-js';
     MatDividerModule, 
     NgxTypedJsModule, 
     MatProgressBarModule
-  ],
-  exports: [ CustomerListComponent, ]
+  ]
 })
-export class CustomersModule { }
+export class SignupModule { }
